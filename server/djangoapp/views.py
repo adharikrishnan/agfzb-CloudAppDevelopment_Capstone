@@ -42,9 +42,9 @@ def login_request(request):
             login(request, user)
             return redirect('djangoapp:index')
         else:
-            return render(request,'djangoapp:index', context)
+            return redirect('djangoapp:index')
     else:
-        return render(request,'djangoapp:index', context)     
+        return redirect('djangoapp:index')  
 
 
 
@@ -58,8 +58,17 @@ def logout_request(request):
 
 
 # Create a `registration_request` view to handle sign up request
-# def registration_request(request):
-# ...
+def registration_request(request):
+    context = {}
+
+    if request.method == "GET":
+        return render(request, 'djangoapp/registration.html', context)
+    
+    elif request.method == "POST":
+        pass
+        
+
+
 
 # Update the `get_dealerships` view to render the index page with a list of dealerships
 def get_dealerships(request):
