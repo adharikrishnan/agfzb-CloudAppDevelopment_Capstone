@@ -65,7 +65,26 @@ def registration_request(request):
         return render(request, 'djangoapp/registration.html', context)
     
     elif request.method == "POST":
-        pass
+
+        username = request.POST['username']
+        password = request.POST['password']
+        firstname = request.POST['firstname']
+        lastname = request.POST['lastname']
+        user_exist = False
+
+        try:
+            User.objects.get(username = username)
+            user_exist = True
+        except:
+            logger.debug("{} is new user.".format(username))
+        
+        if not user_exist:
+            user = User.objects.create_user(username = username, first_name = firstname, 
+                                            last_name = lastname, password = password)
+            login(request, user)
+            return redirect('djangoapp:index')
+        else:
+            return redirect('djangoapp:registration')
         
 
 

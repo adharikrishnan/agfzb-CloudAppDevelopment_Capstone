@@ -33,7 +33,7 @@
 
                     {% if user.is_authenticated %}
                 <li>
-                  <a style="margin-left:950px"class="btn btn-dark" href="#">{{ user.first_name }}({{ user.username }})</a>
+                  <a style="margin-left:850px"class="btn btn-dark" href="#">Hello, {{ user.first_name }}</a>
                   <a class="btn btn-link" href="{% url 'djangoapp:logout' %}">Logout</a>
                 </li>
 

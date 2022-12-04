@@ -76,29 +76,34 @@
               </ul>
         </div>
     </nav>
-    
+    <div class="col-md-10 col-sm-12">
+    <div class="login-form">
     <form style="margin-left:200px;margin-top:50px" action="{% url 'djangoapp:registration' %}" method="post">
-        <div class="form-group column">
+        
           <h1>Sign Up</h1>
-          <div class="col-xs-3">
+          <div class="form-group">
             <label for="username">User Name</label>
             <input type="text" class="form-control" name="username" placeholder="Enter User Name" required>
           </div>
-          
+          <div class="form-group">
             <label for="username">First Name</label>
             <input type="text" class="form-control" name="firstname" placeholder="Enter First Name" required>
-         
+          </div>
+          <div class="form-group">
             <label for="username">Last Name</label>
             <input type="text" class="form-control" name="lastname" placeholder="Enter Last Name" required>
-         
+        </div>
+        <div class="form-group">
             <label for="username">Password</label>
             <input type="password" class="form-control" name="password" placeholder="Enter Password" required>
-          
+        </div>
           <div>
               {% csrf_token %}
               <button class="btn btn-dark" type="submit">Sign Up</button>
           </div>
         </div>
+        </div>
+       </div>
       </form>
 
     </body>
